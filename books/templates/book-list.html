@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} Book list {% endblock title %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col s8 offset-s2">
+				<h1 class="center-align">Book list</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s8 offset-s2">
+			<table class="centered striped">
+				<thead>
+					<tr>
+							<th data-field="name">Name</th>
+							<th data-field="category">Category</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for book in books %}
+						<tr>
+							<td>{{ book.name }}</td>
+							<td>{{ book.category }}</td>
+						</tr>
+					{% empty %}
+
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock content %}

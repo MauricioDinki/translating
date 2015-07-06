@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} {% endblock title %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col s8 offset-s2">
+				<h1 class="center-align">Create a new Book</h1>
+			</div>
+		</div>
+		<form action="." method="post">
+			{% csrf_token %}
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<label for="id_name">Name</label>
+					{{ form.name }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					{{ form.category }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<button class="btn waves-effect waves-light col s12" type="submit">
+						Submit
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock content %}
+{% block js %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+	</script>
+{% endblock js %}
