@@ -1,2 +1,4 @@
 {% extends "book-form.html" %}
-{% block title %} Add a book {% endblock title %}
+{% load i18n %}
+{% block title %} {% trans "Add a book" %} {% endblock title %}
+{% block form_title %} {% trans "Create a new book" %} {% endblock form_title %}
