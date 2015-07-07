@@ -1,4 +1,8 @@
 {% extends "book-form.html" %}
 {% load i18n %}
 {% block title %} Update {{ book.slug }} {% endblock title %}
-{% block form_title %} Update {{ book.slug }} book {% endblock form_title %}
+{% block form_title %}
+	{% blocktrans with book.slug as book_name %}
+		Update {{ book_name }} book
+	{% endblocktrans %}
+{% endblock form_title %}

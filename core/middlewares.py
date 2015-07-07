@@ -1,6 +1,16 @@
 from django.utils import translation
+from django.conf import settings
+from django.middleware.locale import LocaleMiddleware
 
-import logging
+
+def get_language_from_request(request, check_path=False):
+    return settings.LANGUAGE_CODE
+
+
+class FixedLocaleMiddleware(LocaleMiddleware):
+    def process_request(self, request):
+        language = get_language_from_request(request)
+        translation.activate(language)
 
 
 class SubdomainLanguageMiddleware(object):
@@ -15,7 +25,6 @@ class SubdomainLanguageMiddleware(object):
         host = request.get_host().split('.')
         if host and host[0] in self.LANGUAGES:
             lang = host[0]
-            logging.debug("Choosing language: {0}".format(lang))
             translation.activate(lang)
             request.LANGUAGE_CODE = lang
 
@@ -25,8 +34,6 @@ class SubdomainMiddleware(object):
         """Parse out the subdomain from the request"""
         request.subdomain = None
         host = request.META.get('HTTP_HOST', '')
-        print 'el host es %s' % host
         host_s = host.replace('www.', '').split('.')
         if len(host_s) > 2:
             request.subdomain = ''.join(host_s[:-2])
-            print 'el subdominio es %s' % request.subdomain

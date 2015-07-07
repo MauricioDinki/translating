@@ -41,9 +41,8 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'core.middlewares.SubdomainMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'core.middlewares.FixedLocaleMiddleware',
     'core.middlewares.SubdomainLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    # 'core.middlewares.SubdomainMiddleware',
 )
 
 ROOT_URLCONF = 'translate_adventure.urls'
@@ -98,7 +98,7 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

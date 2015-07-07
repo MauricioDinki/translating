@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-06 17:27+0000\n"
+"POT-Creation-Date: 2015-07-07 01:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,11 +36,11 @@ msgstr "Geografia"
 
 #: books/templates/book-create.html:3
 msgid "Add a book"
-msgstr "Añadir un libro"
+msgstr "Añadir libros"
 
 #: books/templates/book-create.html:4
-msgid "Subir un libro"
-msgstr ""
+msgid "Create a new book"
+msgstr "Añadir un libro"
 
 #: books/templates/book-form.html:15 books/templates/book-list.html:17
 msgid "Name"
@@ -58,10 +58,21 @@ msgstr "Lista de libros"
 msgid "Category"
 msgstr "Categoria"
 
-#: translate_adventure/settings.py:111
+#: books/templates/book-update.html:5
+#, python-format
+msgid ""
+"\n"
+"\t\tUpdate %(book_name)s book\n"
+"\t"
+msgstr ""
+"\n"
+"\t\tActualizar el libro %(book_name)s\n"
+"\t"
+
+#: translate_adventure/settings.py:112
 msgid "English"
 msgstr "Ingles"
 
-#: translate_adventure/settings.py:112
+#: translate_adventure/settings.py:113
 msgid "Spanish"
 msgstr "Español"
