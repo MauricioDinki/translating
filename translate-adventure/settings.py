@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'books',
+    'preferences',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,10 +53,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'core.middlewares.LanguagePreferenceRedirectMiddleware',
     # 'core.middlewares.SubdomainMiddleware',
 )
 
-ROOT_URLCONF = 'translate_adventure.urls'
+ROOT_URLCONF = 'translate-adventure.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'translate_adventure.wsgi.application'
+WSGI_APPLICATION = 'translate-adventure.wsgi.application'
 
 
 # Database
@@ -116,6 +119,8 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, 'locale'),
 )
+
+SITE_ID = 1
 
 SESSION_COOKIE_DOMAIN = '.development.com'
 

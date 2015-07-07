@@ -1,10 +1,32 @@
 from django.utils import translation
 from django.conf import settings
 from django.middleware.locale import LocaleMiddleware
+from django.contrib.sites.models import Site
+
+from django.http import HttpResponsePermanentRedirect
+
+from preferences.models import Preference
 
 
 def get_language_from_request(request, check_path=False):
     return settings.LANGUAGE_CODE
+
+
+class LanguagePreferenceRedirectMiddleware(object):
+    def process_request(self, request):
+        """Returns an HTTP redirect response for requests including non-"www"
+        subdomains.
+        """
+        domain = request.META.get('HTTP_HOST') or request.META.get('SERVER_NAME')
+        pieces = domain.split('.')
+        subdomain = ".".join(pieces[:-2])
+        if request.user.is_authenticated() and subdomain == '':
+            scheme = "http" if not request.is_secure() else "https"
+            path = request.get_full_path()
+            default_domain = Site.objects.get(id=settings.SITE_ID)
+            user_language = Preference.objects.get(user=request.user).language
+            url = '{0}://{1}.{2}{3}'.format(scheme, user_language, default_domain, path)
+            return HttpResponsePermanentRedirect(url)
 
 
 class FixedLocaleMiddleware(LocaleMiddleware):
