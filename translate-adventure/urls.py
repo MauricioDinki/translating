@@ -13,17 +13,16 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+from __future__ import absolute_import, unicode_literals
 from django.conf.urls import include, url
-# from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
 from books import urls as books_urls
+from authors import urls as authors_urls
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include(books_urls, namespace='books')),
+    url(r'^books/', include(books_urls, namespace='books')),
+    url(r'^authors/', include(authors_urls, namespace='authors')),
 ]
-# 
-# urlpatterns += i18n_patterns(
-# )

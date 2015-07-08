@@ -8,22 +8,19 @@
 				<thead>
 					<tr>
 							<th data-field="name">{% trans "Name" %}</th>
-							<th data-field="category">{% trans "Category" %}</th>
-							<th data-field="category">{% trans "Author" %}</th>
 					</tr>
 				</thead>
 				<tbody>
-					{% for book in books %}
+					{% for author in authors %}
 						<tr>
-							<td><a href="{% url 'books:detail' book.slug %}">{{ book.name }}</a></td>
-							<td>{{ book.get_category_display }}</td>
-							<td>{{ book.author }}</td>
+							<td>{{ author.first_name }}  {{ author.last_name }}</td>
+						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<div class="row padding-top">
-		<a class="btn waves-effect waves-light col s8 offset-s2 " href="{% url 'books:create' %}">+</a>
+		<a class="btn waves-effect waves-light col s8 offset-s2 " href="{% url 'authors:create' %}">+</a>
 	</div>
 {% endblock content %}

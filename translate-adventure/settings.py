@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'books',
     'preferences',
+    'authors',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,6 +130,10 @@ STATIC_ROOT = 'staticfiles'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------

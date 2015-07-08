@@ -6,26 +6,16 @@
 			{% csrf_token %}
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					<label for="id_name">{% trans "Name" %}</label>
-					{{ form.name }}
+					<label for="id_fist_name">{% trans "First Name" %}</label>
+					{{ form.first_name }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
-					{{ form.category }}
+					<label for="id_last_name">{% trans "Last Name" %}</label>
+					{{ form.last_name }}
 				</div>
 			</div>
-			<div class="row">
-				<div class="input-field col s6 offset-s3">
-					{{ form.author }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6 offset-s3">
-					<label for="id_description">{% trans "Description" %}</label>
-					{{ form.description }}
-				</div>
-			</row>
 			<div class="row">
 				<div class="input-field col s6 offset-s3">
 					<button class="btn waves-effect waves-light col s12" type="submit">
@@ -35,10 +25,3 @@
 			</div>
 		</form>
 {% endblock content %}
-{% block js %}
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('select').material_select();
-		});
-	</script>
-{% endblock js %}

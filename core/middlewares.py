@@ -3,7 +3,7 @@ from django.conf import settings
 from django.middleware.locale import LocaleMiddleware
 from django.contrib.sites.models import Site
 
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponseRedirect
 
 from preferences.models import Preference
 
@@ -24,9 +24,12 @@ class LanguagePreferenceRedirectMiddleware(object):
             scheme = "http" if not request.is_secure() else "https"
             path = request.get_full_path()
             default_domain = Site.objects.get(id=settings.SITE_ID)
-            user_language = Preference.objects.get(user=request.user).language
+            try:
+                user_language = Preference.objects.get(user=request.user).language
+            except Preference.DoesNotExist:
+                user_language = get_language_from_request(request)
             url = '{0}://{1}.{2}{3}'.format(scheme, user_language, default_domain, path)
-            return HttpResponsePermanentRedirect(url)
+            return HttpResponseRedirect(url)
 
 
 class FixedLocaleMiddleware(LocaleMiddleware):

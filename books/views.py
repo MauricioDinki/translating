@@ -1,26 +1,33 @@
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 
 from .models import Book
+from .forms import BookForm
 
 
 class BookCreateView(CreateView):
     model = Book
-    fields = ['name', 'category']
+    form_class = BookForm
     template_name = 'book-create.html'
-    success_url = reverse_lazy('books:book-list')
+    success_url = reverse_lazy('books:list')
+
+
+class BookDetailView(DetailView):
+    model = Book
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+    context_object_name = 'book'
+    template_name = 'book-detail.html'
 
 
 class BookListView(ListView):
-    context_object_name = 'books'
     model = Book
-    page_kwarg = 'page'
-    paginate_by = 10
+    context_object_name = 'books'
     template_name = 'book-list.html'
 
 
 class BookUpdateView(UpdateView):
     model = Book
     fields = ['name', 'category']
-    success_url = reverse_lazy('books:book-list')
+    success_url = reverse_lazy('books:list')
     template_name = 'book-update.html'

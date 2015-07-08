@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Book - {{ book.name }} {% endblock title %}
+{% block content %}
+	<div class="row padding-top">
+		<div class="col s12 m6">
+			<div class="card medium blue-grey darken-1">
+				<div class="card-content white-text">
+					<span class="card-title">{{ book.name }} - {{ book.author }}</span>
+					<p>
+						{{ book.description }}
+					</p>
+				</div>
+				<div class="card-action">
+					<a href="{% url 'books:update' book.slug %}">{% trans "Update" %}</a>
+					{# <a href="{% url 'books:delete' book.slug %}">{% trans "Delete" %}</a> #}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

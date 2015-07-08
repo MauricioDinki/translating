@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 01:48+0000\n"
+"POT-Creation-Date: 2015-07-08 18:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: books/models.py:6
-msgid "Maths"
-msgstr "Matematicas"
+#: authors/models.py:13 books/templates/book-list.html:12
+msgid "Author"
+msgstr "Autor"
 
-#: books/models.py:7
-msgid "Science"
-msgstr "Ciencias"
+#: authors/models.py:14 translate-adventure/templates/base.html:18
+#: translate-adventure/templates/base.html:22
+msgid "Authors"
+msgstr "Autores"
 
-#: books/models.py:8
-msgid "Biology"
-msgstr "Biologia"
+#: authors/templates/author-create.html:9
+msgid "First Name"
+msgstr "Nombre(s)"
 
-#: books/models.py:9
-msgid "Geography"
-msgstr "Geografia"
+#: authors/templates/author-create.html:15
+msgid "Last Name"
+msgstr "Apellido(s)"
 
-#: books/templates/book-create.html:3
-msgid "Add a book"
-msgstr "Añadir libros"
-
-#: books/templates/book-create.html:4
-msgid "Create a new book"
-msgstr "Añadir un libro"
-
-#: books/templates/book-form.html:15 books/templates/book-list.html:17
-msgid "Name"
-msgstr "Nombre"
-
-#: books/templates/book-form.html:27
+#: authors/templates/author-create.html:22 books/templates/book-form.html:32
 msgid "Submit"
 msgstr "Enviar"
 
-#: books/templates/book-list.html:3 books/templates/book-list.html.py:8
+#: authors/templates/author-list.html:3 books/templates/book-list.html:3
 msgid "Book list"
-msgstr "Lista de libros"
+msgstr "Lista de Libros"
 
-#: books/templates/book-list.html:18
+#: authors/templates/author-list.html:10 books/templates/book-form.html:9
+#: books/templates/book-list.html:10
+msgid "Name"
+msgstr "Nombre"
+
+#: books/models.py:8
+msgid "Maths"
+msgstr "Matematicas"
+
+#: books/models.py:9
+msgid "Science"
+msgstr "Ciencias"
+
+#: books/models.py:10
+msgid "Biology"
+msgstr "Biologia"
+
+#: books/models.py:11
+msgid "Geography"
+msgstr "Geografia"
+
+#: books/models.py:23
+msgid "Book"
+msgstr "Libro"
+
+#: books/models.py:24 translate-adventure/templates/base.html:17
+#: translate-adventure/templates/base.html:21
+msgid "Books"
+msgstr "Libros"
+
+#: books/templates/book-create.html:3
+msgid "Add a book"
+msgstr "Añadir un libro"
+
+#: books/templates/book-create.html:4
+msgid "Create a new book"
+msgstr "Crear un libro"
+
+#: books/templates/book-detail.html:15
+msgid "Update"
+msgstr "Actualizar"
+
+#: books/templates/book-form.html:25
+msgid "Description"
+msgstr "Descripcion"
+
+#: books/templates/book-list.html:11
 msgid "Category"
 msgstr "Categoria"
 
@@ -66,13 +101,17 @@ msgid ""
 "\t"
 msgstr ""
 "\n"
-"\t\tActualizar el libro %(book_name)s\n"
+"\t\tActualizar Libro %(book_name)s\n"
 "\t"
 
-#: translate_adventure/settings.py:112
+#: preferences/models.py:7 translate-adventure/settings.py:116
 msgid "English"
 msgstr "Ingles"
 
-#: translate_adventure/settings.py:113
+#: preferences/models.py:8 translate-adventure/settings.py:117
 msgid "Spanish"
 msgstr "Español"
+
+#: translate-adventure/templates/base.html:15
+msgid "Book Manager"
+msgstr "Administrador de Libros"
